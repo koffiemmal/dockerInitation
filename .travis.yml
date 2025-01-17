@@ -12,7 +12,7 @@ before_deploy:
 
 deploy:
      provider: script
-     script: docker push backend
+     script: docker push messanemmanuel/backend:latest
      on:
         branch: main
    
