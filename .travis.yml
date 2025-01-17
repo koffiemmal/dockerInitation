@@ -3,8 +3,6 @@ services:
   - docker
 
 script:
-    - rvm use default
-    - ruby -v
-    - cd backend
+
     - docker build -t backend .
     - docker images backend
