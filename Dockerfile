@@ -1,13 +1,11 @@
 FROM node:18.19-bullseye-slim
 
 # Installation des dépendances système nécessaires
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    python3 \
-    make \
-    g++ \
-    && rm -rf /var/lib/apt/lists/*
+RUN mkdir /usr/src/app
 
 WORKDIR /usr/src/app
+
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
 # Copie des fichiers package
 COPY package*.json ./
