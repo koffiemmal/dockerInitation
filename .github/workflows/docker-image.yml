@@ -16,8 +16,12 @@ jobs:
     - name: Log in to Docker Hub
       run: echo "AZemmanuel20" | docker login -u "messanemmanuel" --password-stdin
 
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag messanemmanuel/backend
+    - name: Generate timestamp
+      id: timestamp
+      run: echo "TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
 
-    - name: Push Docker image
-      run: docker push messanemmanuel/backend  
+    - name: Construire l'image Docker
+      run: docker build . --file Dockerfile --tag messanemmanuel/backend:1.0.0
+
+    - name: Pousser l'image Docker
+      run: docker push messanemmanuel/backend:1.0.0
