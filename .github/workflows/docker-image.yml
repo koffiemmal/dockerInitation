@@ -17,7 +17,7 @@ jobs:
       run: echo "AZemmanuel20" | docker login -u "messanemmanuel" --password-stdin
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag messanemmanuel/backend:$(date +%s)
+      run: docker build . --file Dockerfile --tag messanemmanuel/backend
 
     - name: Push Docker image
-      run: docker push messanemmanuel/backend:$(date +%s)
+      run: docker push messanemmanuel/backend
