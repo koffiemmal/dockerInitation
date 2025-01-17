@@ -14,10 +14,10 @@ COPY package*.json ./
 RUN npm install
 
 # Copie du reste des fichiers
-COPY . .
+COPY . /usr/src/app
 
 # Port exposé
 EXPOSE 4000
 
 # Commande de démarrage modifiée pour utiliser node directement
-CMD ["node", "index.js"]
+CMD ["npm", "dev"]

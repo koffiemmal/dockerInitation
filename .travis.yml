@@ -6,3 +6,12 @@ script:
 
     - docker build -t backend .
     - docker images backend
+
+before_deploy: 
+    - docker login -u Junior Messan -p AZemmanuel20
+
+deploy:
+     provider: script
+     script: docker push backend
+     on:
+        branch: main
