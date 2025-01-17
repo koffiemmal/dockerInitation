@@ -11,8 +11,9 @@ before_deploy:
     - echo "AZemmanuel20" | docker login -u messanemmanuel --password-stdin
 
 deploy:
-     provider: script
-     script: docker push messanemmanuel/backend:latest
-     on:
-        branch: main
+  provider: script
+  script: docker push messanemmanuel/backend:latest
+  on:
+    branch: main
+
    
