@@ -5,4 +5,4 @@ services:
 script:
 
     - docker build -t backend .
-    - docker images backend
+    - docker run -it backend /bin/sh

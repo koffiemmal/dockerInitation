@@ -1,15 +1,23 @@
-FROM node
+FROM node:18
 
-RUN mkdir /usr/src/app
+# Create and set the working directory
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
+# Set PATH for node_modules/.bin
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
-COPY package*.json /usr/src/app/
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
+# Install dependencies
 RUN npm install
 
-COPY . /usr/src/app
+# Copy the rest of the application code
+COPY . .
 
+# Expose the application port
 EXPOSE 4000
-CMD [ "npm", "start"]
+
+# Start the application
+CMD ["npm", "start"]
