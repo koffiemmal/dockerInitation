@@ -11,8 +11,7 @@ ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY package*.json ./
 
 # Installation avec des options de mémoire explicites
-ENV NODE_OPTIONS="--max-old-space-size=2048"
-RUN npm ci --only=production
+RUN npm install
 
 # Copie du reste des fichiers
 COPY . .
