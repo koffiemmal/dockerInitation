@@ -1,23 +1,17 @@
-FROM node:18
+FROM node:20-slim
 
-# Create and set the working directory
-RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-# Set PATH for node_modules/.bin
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
-
-# Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+# Installation des dépendances
+RUN npm install --production
 
-# Copy the rest of the application code
+# Copie du reste des fichiers
 COPY . .
 
-# Expose the application port
+# Port exposé
 EXPOSE 4000
 
-# Start the application
+# Commande de démarrage
 CMD ["npm", "start"]
